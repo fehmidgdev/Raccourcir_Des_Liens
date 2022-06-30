@@ -1,0 +1,46 @@
+﻿@using Raccourcisseur_Liens.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<RaccourseurLiensController> Localizer
+
+@model IEnumerable<RaccourseurLiens>
+
+@{
+    ViewBag.title = "Liste des Catégories";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<div class="container">
+
+    <table style="width:100%">
+        <tr>
+            <th>ID</th>
+            <th>@Localizer["libelleOrigineUrl"]</th>
+            <th>@Localizer["libelleNewUrl"]</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>
+                    <a href="@item.OriginalUrl">
+                        @item.OriginalUrl
+                    </a>
+                </td>
+                <td>
+                    <a href="@item.NouveauUrl">
+                        @item.NouveauUrl
+                    </a>
+                </td>
+                <td>
+
+                    @Html.ActionLink(@Localizer["libelledelete"], "DeleteLiensByID", new { id = @item.Id })
+
+                </td>
+            </tr>
+        }
+    </table>
+</div>

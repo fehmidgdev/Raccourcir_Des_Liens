@@ -1,0 +1,13 @@
+﻿@using Raccourcisseur_Liens.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<HomeController> Localizer
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Localizer["page.title"]</h1>
+    
+    <h1 class="display-4">@Localizer["TitleCreate"]</h1>
+</div>

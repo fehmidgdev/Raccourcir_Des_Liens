@@ -1,0 +1,43 @@
+﻿@using Raccourcisseur_Liens.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<RaccourseurLiensController> Localizer
+@model RaccourseurLiens
+@{ ViewData["Title"] = "Details of a short URL"; }
+
+<br />
+
+<div>
+
+    <h1>@Localizer["libellebtn"]</h1>
+
+    <br />
+
+    <p>@Localizer["Description1"]</p>
+
+    <br />
+
+    <ul>
+        <li>
+            <span class="col-md-2">
+                <strong>URL Id:</strong>
+            </span>
+            @Model.Id
+        </li>
+        <li>
+            <span class="col-md-2">
+                <strong>@Localizer["libelleOrigineUrl"]</strong>
+            </span>
+            <a href="@Model.OriginalUrl">
+                @Model.OriginalUrl
+            </a>
+        </li>
+        <li>
+            <span class="col-md-2">
+                <strong>@Localizer["libelleNewUrl"]</strong>
+            </span>
+            <a href=@Model.NouveauUrl>
+                @Model.NouveauUrl
+            </a>
+        </li>
+    </ul>
+</div>

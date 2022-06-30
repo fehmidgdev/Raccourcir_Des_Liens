@@ -1,0 +1,37 @@
+﻿@using Raccourcisseur_Liens.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<HomeController> Localizer
+
+@model IEnumerable<Historique>
+
+@{
+    ViewBag.title = "Liste des Historiques";
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<div class="container">
+
+    <table style="width:100%">
+        <tr>
+            <th>Url</th>
+            <th>Adr IP</th>
+            <th>@Localizer["Pays"]</th>
+            <th>@Localizer["UserAgent"]</th>
+            <th>@Localizer["TempsAcces"]</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.Url</td>
+        <td>@item.AdresseIP</td>
+        <td>@item.Pays</td>
+        <td>@item.UserAgent</td>
+        <td>@item.DateAcces</td>
+    </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Raccourcisseur_Liens.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<RaccourseurLiensController> Localizer
+
+@model RaccourseurLiens
+@{ ViewData["Title"] = "Créer une courte URL"; }
+
+<br />
+
+<div class="jumbotron">
+
+    <h1>@Localizer["Titre"]</h1>
+
+    <br />
+
+    <p>@Localizer["Description"]</p>
+
+    <br />
+
+    <form asp-action="Create">
+        <div class="form-horizontal">
+            <div class="input-group input-group-lg">
+                <input asp-for="OriginalUrl" class="form-control" placeholder=@Localizer["libelletxt"] />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit">@Localizer["libellebtn"]</button>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
